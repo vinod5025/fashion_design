@@ -1,0 +1,34 @@
+<%- include('navbar.ejs'); %>
+<form action="/admin/update_footer_data" method="post">
+    <div class="container-fluid card card-body shadow bg-white">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading">Footer Section </h3>
+            </div>
+            <div class="col-md-8 mt-3 mb-3 ">
+            <b>About SITE</b>
+            <textarea name="about_site" rows="1" class="form-control rounded-pill border-primary " ></textarea>
+            </div>
+            <div class="col-md-4 mt-3 mb-3">
+                <b>Facebook link</b>
+                <input type="text" name="facebook_link" class="form-control rounded-pill border-primary " >
+            </div>
+            <div class="col-md-4 mt-3 mb-3">
+                <b>LinkedIn link</b>
+                <input type="text" name="linkedin_link" class="form-control rounded-pill border-primary " >
+            </div>
+            <div class="col-md-4 mt-3 mb-3">
+                <b>Instagram link</b>
+                <input type="text" name="instagram_link" class="form-control rounded-pill border-primary " >
+            </div>
+            <div class="col-md-4 mt-3 mb-3">
+                <b>WhatsApp link</b>
+                <input type="text" name="whatsapp_link" class="form-control rounded-pill border-primary " >
+            </div>
+            <div class="col-md-12 mt-3 mb-3 text-center">
+                <button class="btn btn-primary rounded-pill">Save Footer Data</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include('footer.ejs'); %>

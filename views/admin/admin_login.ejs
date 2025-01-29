@@ -1,0 +1,81 @@
+<section class="h-100 gradient-form" style="background-color: #f8f9fa;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black">
+            <div class="row g-0">
+              <div class="col-lg-6">
+                <div class="card-body p-md-5 mx-md-4">
+  
+                  <div class="text-center">
+                    <img src="https://img.freepik.com/free-vector/admin-panel-login-concept-illustration_114360-7989.jpg" style="width: 185px;" alt="Admin Panel Logo">
+                    <h4 class="mt-1 mb-5 pb-1">Admin Panel Login</h4>
+                  </div>
+  
+                  <form action="/admin/admin_login_process" method="post">
+                    <p>Please login to manage the system</p>
+  
+                    <div class="form-outline mb-4">
+                      <input type="text" id="adminUsername" name="admin_email" class="form-control" placeholder="Enter your username" />
+                      <label class="form-label" for="adminUsername">Username</label>
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                      <input type="password" id="adminPassword" class="form-control" placeholder="Enter your password" name="admin_password" />
+                      <label class="form-label" for="adminPassword">Password</label>
+                    </div>
+  
+                    
+  
+                    <div class="text-center pt-1 mb-5 pb-1">
+                      <button class="btn btn-dark btn-block gradient-custom-2 mb-3">Login</button>
+                    </div>
+                  </form>
+  
+                </div>
+              </div>
+  
+              <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                  <h4 class="mb-4">Welcome Admin</h4>
+                  <p class="small mb-0">Manage users, content, and system settings efficiently with our advanced admin panel. Secure, robust, and tailored for your needs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  .gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #6a11cb;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #6a11cb, #2575fc);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+  }
+  
+  @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
+  </style>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  

@@ -1,0 +1,68 @@
+<%- include("navbar.ejs"); %>
+<form action="/admin/save_category" method="post">
+    <div class="container-fluid card card-body">
+        <div class="row">
+            <div class="col-md-12 ">
+                <h2 class="heading">Add Category</h2>
+            </div>
+            <div class="col-md-6 mt-3 mb-3">
+                <b>Category Name :-</b>
+                <input type="text"  name="category_name" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-6 mt-3 mb-3">
+                <b>Category Details :-</b>
+                <textarea type="text"  rows="1" name="category_details" class="form-control border-primary rounded-pill"></textarea> 
+            </div>
+            <div class="col-md-12 mt-3 mb-3 text-center">  
+                <button class="btn btn-primary">Add Category</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+<div class="container-fluid mt-5 mb-5 card card-body table-responsive">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">Category List</h3>
+        </div>
+        <div class="col-md-12 mt-5 mb-5 text-center">
+            <table class="table table-hover shadow">
+                <tr>
+                    <th>Action</th>
+                    <th>Sr.No.</th>
+                    <th>Category Name</th>
+                    <th>Category Details</th>
+                </tr>
+                <% if (cats.length > 1) { %>
+                    <% cats.map((row, i) => { %>
+                      <% if (i > 0) { %>
+                        <tr>
+                          <td style="white-space: nowrap;">
+                            <button class="btn btn-secondary">
+                              <a href="/admin/edit_category/<%-row.category_id%>"><i class="fa fa-edit"></i></a>
+                            </button>
+                            <button class="btn btn-danger">
+                              <a href="/admin/delete_category/<%-row.category_id%>" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
+                            </button>
+                          </td>
+                          <td><%= i %></td>
+                          <td><%= row.category_name %></td>
+                          <td><%= row.category_details%></td>
+                        </tr>
+                      <% } %>
+                    <% }); %>
+                  <% } else { %>
+                    <tr>
+                      <td colspan="4" style="text-align: center;">No categories available.</td>
+                    </tr>
+                  <% } %>
+                  
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<%- include("footer.ejs"); %>

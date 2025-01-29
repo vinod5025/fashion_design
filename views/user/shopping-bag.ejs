@@ -1,0 +1,161 @@
+<%- include("navbar.ejs"); %>
+   <!-- Shopping Bag  -->
+   <div class="offcanvas offcanvas-end border-light-subtle" tabindex="-1" id="cart" aria-labelledby="cartLabel">
+    <div class="offcanvas-header bg-light border-bottom border-light-subtle d-flex align-items-center p-0">
+      <h5 class="offcanvas-title fw-bold p-3" id="cartLabel">SHOPPING BAG <span class="fw-normal text-dark-emphasis fs-14">(3 items)</span>
+      </h5>
+      <a href="#" class="btn btn-dark btn-lg rounded-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+        <i class="ri-close-fill fs-2"></i>
+      </a>
+    </div>
+    <div class="offcanvas-body p-0">
+      <!-- 1st item -->
+      <div class="card border-0 rounded-0 p-3 border-bottom border-light-subtle">
+        <div class="row align-items-center g-0">
+          <div class="col-4">
+            <div class="position-relative">
+              <span class="badge text-bg-danger rounded-0 px-2 py-1 m-2 position-absolute start-0">40% OFF</span>
+            </div>
+            <img src="/user/img/whats-new/new-3.jpg" class="img-fluid" alt="cart-item">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h6 class="card-title fw-bold mb-1">The Organic Taper Jean</h6>
+              <p class="card-text mb-1">
+                <small class="text-body-secondary">Size: XL, Colour: Blue</small>
+              </p>
+              <h5 class="card-text fw-bold mb-0 pb-4">
+                <del class="text-dark-emphasis fw-normal small">₹2,299.00</del> ₹1,269.00
+              </h5>
+              <div class="d-flex align-items-center gap-3 position-relative z-3">
+                <div>
+                  <input type="checkbox" class="btn-check" id="btncheckcart1">
+                  <label class="btn btn-outline-dark btn-sm border-2 rounded-0" for="btncheckcart1">
+                    <i class="ri-heart-fill"></i>
+                  </label>
+                </div>
+                <div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number">
+                  <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark minus">
+                    <i class="ri-subtract-fill"></i>
+                  </a>
+                  <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="1">
+                  <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus">
+                    <i class="ri-add-fill"></i>
+                  </a>
+                </div>
+                <a href="#" class="btn btn-danger btn-sm border-2 rounded-0" data-bs-toggle="modal" data-bs-target="#delete">
+                  <i class="ri-delete-bin-5-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="product-detail.html" class="stretched-link"></a>
+      </div>
+      <!-- 2nd item -->
+      <div class="card border-0 rounded-0 p-3 border-bottom border-light-subtle">
+        <div class="row align-items-center g-0">
+          <div class="col-4">
+            <div class="position-relative">
+              <span class="badge text-bg-danger rounded-0 px-2 py-1 m-2 position-absolute start-0">JUST IN</span>
+            </div>
+            <img src="/user/img/whats-new/new-4.jpg" class="img-fluid" alt="cart-item">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h6 class="card-title fw-bold mb-1">Bomber jacket</h6>
+              <p class="card-text mb-1">
+                <small class="text-body-secondary">Size: XL, Colour: Blue</small>
+              </p>
+              <h5 class="card-text fw-bold pb-4">₹2,539.00</h5>
+              <div class="d-flex align-items-center gap-3 position-relative z-3">
+                <div>
+                  <input type="checkbox" class="btn-check" id="btncheckcart2">
+                  <label class="btn btn-outline-dark btn-sm border-2 rounded-0" for="btncheckcart2">
+                    <i class="ri-heart-fill"></i>
+                  </label>
+                </div>
+                <div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number">
+                  <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark minus">
+                    <i class="ri-subtract-fill"></i>
+                  </a>
+                  <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="1">
+                  <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus">
+                    <i class="ri-add-fill"></i>
+                  </a>
+                </div>
+                <a href="#" class="btn btn-danger btn-sm border-2 rounded-0" data-bs-toggle="modal" data-bs-target="#delete">
+                  <i class="ri-delete-bin-5-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="product-detail.html" class="stretched-link"></a>
+      </div>
+      <!-- 3rd item -->
+      <div class="card border-0 rounded-0 p-3">
+        <div class="row align-items-center g-0">
+          <div class="col-4">
+            <div class="position-relative">
+              <span class="badge text-bg-danger rounded-0 px-2 py-1 m-2 position-absolute start-0">30% OFF</span>
+              <img src="/user/img/whats-new/new-6.jpg" class="img-fluid" alt="cart-item">
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <h6 class="card-title fw-bold mb-1">Regular Fit Terry resort shirt</h6>
+              <p class="card-text mb-1">
+                <small class="text-body-secondary">Size: XL, Colour: Blue</small>
+              </p>
+              <h5 class="card-text fw-bold mb-0 pb-3">
+                <del class="text-dark-emphasis fw-normal small">₹1,269.00</del> ₹869.00
+              </h5>
+              <div class="d-flex align-items-center gap-3 position-relative z-3">
+                <div>
+                  <input type="checkbox" class="btn-check" id="btncheckcart3">
+                  <label class="btn btn-outline-dark btn-sm border-2 rounded-0" for="btncheckcart3">
+                    <i class="ri-heart-fill"></i>
+                  </label>
+                </div>
+                <div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number">
+                  <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark minus">
+                    <i class="ri-subtract-fill"></i>
+                  </a>
+                  <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="1">
+                  <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus">
+                    <i class="ri-add-fill"></i>
+                  </a>
+                </div>
+                <a href="#" class="btn btn-danger btn-sm border-2 rounded-0" data-bs-toggle="modal" data-bs-target="#delete">
+                  <i class="ri-delete-bin-5-fill"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="product-detail.html" class="stretched-link"></a>
+      </div>
+    </div>
+    <div class="offcanvas-footer bg-light border-top border-light-subtle">
+      <div class="mb-3">
+        <div class="d-flex align-items-center justify-content-between text-secondary-emphasis mb-1">
+          <p class="mb-0">Order value</p>
+          <p class="mb-0">₹2,798.00</p>
+        </div>
+        <div class="d-flex align-items-center justify-content-between text-secondary-emphasis mb-2">
+          <p class="mb-0">Delivery</p>
+          <p class="mb-0">FREE</p>
+        </div>
+        <div class="d-flex align-items-center justify-content-between">
+          <h4 class="fw-bold mb-0">Total</h4>
+          <h4 class="fw-bold mb-0">₹4,678.00</h4>
+        </div>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <a href="cart.html" class="btn btn-outline-dark border-2 rounded-0 py-2 w-100">EDIT CART</a>
+        <a href="checkout.html" class="btn btn-dark rounded-0 py-2 w-100">CONTINUE</a>
+      </div>
+    </div>
+  </div>
+<%- include("footer.ejs"); %>

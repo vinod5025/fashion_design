@@ -1,0 +1,434 @@
+
+  <div class="py-5 footer bg-body-tertiary">
+	<div>
+	  <div class="container py-3">
+		<div class="row">
+		  <div class="col-12 col-lg-3 col-md-3 pe-lg-5">
+			<a href="/" class="footer-brand d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+			  <img src="/uploads/<%=logo.navbar_logo%>" class="img-fluid w-25" alt="iamosahan">
+			</a>
+			<h6 class="mb-2 text-body fw-bold text-uppercase mt-5">ABOUT SITE</h6>
+			<p><%=footer_data.about_site%></p>
+		  </div>
+		  
+		  <div class="col-6 col-lg-2 col-md-3">
+			<h6 class="mb-3 text-body fw-bold">COMPANY</h6>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="/about-us">About</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="/user_profile">Profile</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="/blog">Blog</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="/blog-detail">Blog Detail</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="/faq">FAQ</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="/contact-us">Contact Us</a>
+		  </div>
+		  <div class="col-6 col-lg-2 col-md-3">
+			<h6 class="mb-3 text-body fw-bold">ACCOUNT</h6>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="account.html">Account</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="account.html">Orders</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="account.html">Settings</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="account.html">Favourites</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="account.html">Account Settings</a>
+			<a class="py-2 text-decoration-none d-block w-100 link-secondary" href="brand.html">Brand</a>
+		  </div>
+		  <div class="col-6 col-lg-3 col-md-3">
+			<h6 class="mb-2 text-body fw-bold text-uppercase">APP ON MOBILE</h6>
+			<p>Refer and get free product.</p>
+			<div class="d-flex aling-items-center gap-3 mb-4">
+			  <a href="#">
+				<img src="/user/img/google-store.png" alt="google-store" class="img-fluid">
+			  </a>
+			  <a href="#">
+				<img src="/user/img/app-store.png" alt="app-store" class="img-fluid">
+			  </a>
+			</div>
+			<h6 class="mb-3 text-body fw-bold mt-4 pt-2">CORPORATE OFFICE</h6>
+			<p class="fw-light mb-3">Akshya Nagar 1st Block 1st Cross, Rammurthy nagar, Bangalore-560016</p>
+			<a href="#" target="_blank" class="text-decoration-none fw-light text-dark small">
+			  <i class="ri-map-pin-line me-1"></i>Locate us on Google Maps </a>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <div class="py-3 bg-white footer-copyright">
+	<div class="container">
+	  <div class="row align-items-center">
+		<div class="col-md-8">
+		  <span class="me-3 small">©2025 <b class="text-dark">
+			<a href="https://vinod-thombare.onrender.com" target="_blank">Mr. Vinod Thombare</a>
+		  </b>. All rights reserved </span>
+		  <a class="text-black-50 small mx-3 text-decoration-none" href="/">Terms of Conditions</a>
+		  <a class="text-black-50 small mx-3 text-decoration-none" href="/">Privacy Policy</a>
+		</div>
+		<div class="col-md-4 text-end">
+		  <a target="_blank" href="<%=footer_data.facebook_link%>" class="btn social-btn btn-sm text-decoration-none">
+			<i class="ri-facebook-fill"></i>
+		  </a>
+		  <a target="_blank" href="<%=footer_data.whatsapp_link%>" class="btn social-btn btn-sm text-decoration-none">
+			<i class="ri-whatsapp-fill"></i>
+		  </a>
+		  <a target="_blank" href="<%=footer_data.linkedin_link%>" class="btn social-btn btn-sm text-decoration-none">
+			<i class="ri-linkedin-fill"></i>
+		  </a>
+		  <a target="_blank" href="<%=footer_data.instagram_link%>" class="btn social-btn btn-sm text-decoration-none">
+			<i class="ri-instagram-fill"></i>
+		  </a>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- Login welcome modal -->
+ <!-- Create New Account Modal -->
+ <form action="/save_account" method="post">
+	<div class="modal fade" id="logintwo" tabindex="-1" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content border-0 rounded-3 shadow">
+		  <div class="modal-header border-0">
+			<button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+		  </div>
+		  <div class="modal-body p-4">
+			<div class="text-center mb-4">
+			  <img src="/user/img/logo.svg" alt="Logo" class="img-fluid" style="max-width: 100px;">
+			</div>
+			<h4 class="text-center fw-bold mb-4">Create New Account</h4>
+			<div class="col-12 mb-2">
+			  <label for="InputName4" class="form-label">Full Name</label>
+			  <input type="text" name="user_name" class="form-control rounded-3" id="InputName4" placeholder="Enter your name" required>
+			</div>
+			<div class="col-12 mb-2">
+			  <label for="InputEmail1" class="form-label">Email Address</label>
+			  <input type="email" name="email" class="form-control rounded-3" id="InputEmail1" placeholder="Enter your email" required>
+			</div>
+			<div class="col-12 mb-2">
+			  <label for="InputMobile" class="form-label">Mobile Number</label>
+			  <input type="tel" name="mobile" class="form-control rounded-3" id="InputMobile" placeholder="Enter your mobile" required>
+			</div>
+			<div class="col-12 mb-4">
+			  <label for="InputPassword2" class="form-label">Password</label>
+			  <input type="password" name="password" class="form-control rounded-3" id="InputPassword2" placeholder="Enter password" required>
+			</div>
+			<div class="col-12">
+			  <button type="submit" class="btn btn-primary rounded-3 w-100 py-2">Continue</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </form>
+  
+
+  
+  
+  <!-- Log In Modal -->
+  <div class="modal fade" id="login" tabindex="-1"  aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content border-0 rounded-3 shadow">
+		<div class="modal-header border-0">
+		  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body p-4">
+		  <h4 class="text-center fw-bold mb-4">Log In Now</h4>
+		  <form class="row g-3" action="/proceed_to_login" method="post">
+			<div class="col-12">
+			  <label for="InputEmail1" class="form-label">Email Address</label>
+			  <input type="email" class="form-control rounded-3" id="InputEmail1" name="email" placeholder="Enter your email">
+			</div>
+			<div class="col-12">
+			  <label for="InputPassword2" class="form-label">Password</label>
+			  <input type="password" class="form-control rounded-3" id="InputPassword2" name="password" placeholder="Enter password">
+			</div>
+			<div class="col-12">
+			  <button type="submit" class="btn btn-primary rounded-3 w-100 py-2">Log In</button>
+			</div>
+			<div class="col-12 text-center">
+			  <p class="small mt-3">Don't have an account? 
+				<a href="" data-bs-toggle="modal" data-bs-target="#logintwo" class="text-primary fw-bold">Create New Account</a>
+			  </p>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  <!-- Shopping Bag  -->
+  <div class="offcanvas offcanvas-end border-light-subtle" tabindex="-1" id="cart" aria-labelledby="cartLabel">
+	<div class="offcanvas-header bg-light border-bottom border-light-subtle d-flex align-items-center p-0">
+	  <h5 class="offcanvas-title fw-bold p-3" id="cartLabel">SHOPPING BAG <span class="fw-normal text-dark-emphasis fs-14">(3 items)</span>
+	  </h5>
+	  <a href="#" class="btn btn-dark btn-lg rounded-0 ms-auto" data-bs-dismiss="offcanvas" aria-label="Close">
+		<i class="ri-close-fill fs-2"></i>
+	  </a>
+	</div>
+	<div class="offcanvas-body p-0">
+	  <!-- 1st item -->
+	  <div class="card border-0 rounded-0 p-3 border-bottom border-light-subtle">
+		<div class="row align-items-center g-0">
+		  <div class="col-4">
+			<div class="position-relative">
+			  <span class="badge text-bg-danger rounded-0 px-2 py-1 m-2 position-absolute start-0">40% OFF</span>
+			</div>
+			<img src="/user/img/whats-new/new-3.jpg" class="img-fluid" alt="cart-item">
+		  </div>
+		  <div class="col-8">
+			<div class="card-body">
+			  <h6 class="card-title fw-bold mb-1">The Organic Taper Jean</h6>
+			  <p class="card-text mb-1">
+				<small class="text-body-secondary">Size: XL, Colour: Blue</small>
+			  </p>
+			  <h5 class="card-text fw-bold mb-0 pb-4">
+				<del class="text-dark-emphasis fw-normal small">₹2,299.00</del> ₹1,269.00
+			  </h5>
+			  <div class="d-flex align-items-center gap-3 position-relative z-3">
+				<div>
+				  <input type="checkbox" class="btn-check" id="btncheckcart1">
+				  <label class="btn btn-outline-dark btn-sm border-2 rounded-0" for="btncheckcart1">
+					<i class="ri-heart-fill"></i>
+				  </label>
+				</div>
+				<div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number">
+				  <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark minus">
+					<i class="ri-subtract-fill"></i>
+				  </a>
+				  <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="1">
+				  <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus">
+					<i class="ri-add-fill"></i>
+				  </a>
+				</div>
+				<a href="#" class="btn btn-danger btn-sm border-2 rounded-0" data-bs-toggle="modal" data-bs-target="#
+				">
+				  <i class="ri-delete-bin-5-fill"></i>
+				</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<a href="product-detail.html" class="stretched-link"></a>
+	  </div>
+	  <!-- 2nd item -->
+	  <div class="card border-0 rounded-0 p-3 border-bottom border-light-subtle">
+		<div class="row align-items-center g-0">
+		  <div class="col-4">
+			<div class="position-relative">
+			  <span class="badge text-bg-danger rounded-0 px-2 py-1 m-2 position-absolute start-0">JUST IN</span>
+			</div>
+			<img src="/user/img/whats-new/new-4.jpg" class="img-fluid" alt="cart-item">
+		  </div>
+		  <div class="col-8">
+			<div class="card-body">
+			  <h6 class="card-title fw-bold mb-1">Bomber jacket</h6>
+			  <p class="card-text mb-1">
+				<small class="text-body-secondary">Size: XL, Colour: Blue</small>
+			  </p>
+			  <h5 class="card-text fw-bold pb-4">₹2,539.00</h5>
+			  <div class="d-flex align-items-center gap-3 position-relative z-3">
+				<div>
+				  <input type="checkbox" class="btn-check" id="btncheckcart2">
+				  <label class="btn btn-outline-dark btn-sm border-2 rounded-0" for="btncheckcart2">
+					<i class="ri-heart-fill"></i>
+				  </label>
+				</div>
+				<div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number">
+				  <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark minus">
+					<i class="ri-subtract-fill"></i>
+				  </a>
+				  <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="1">
+				  <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus">
+					<i class="ri-add-fill"></i>
+				  </a>
+				</div>
+				<a href="#" class="btn btn-danger btn-sm border-2 rounded-0" data-bs-toggle="modal" data-bs-target="#delete">
+				  <i class="ri-delete-bin-5-fill"></i>
+				</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<a href="product-detail.html" class="stretched-link"></a>
+	  </div>
+	  <!-- 3rd item -->
+	  <div class="card border-0 rounded-0 p-3">
+		<div class="row align-items-center g-0">
+		  <div class="col-4">
+			<div class="position-relative">
+			  <span class="badge text-bg-danger rounded-0 px-2 py-1 m-2 position-absolute start-0">30% OFF</span>
+			  <img src="/user/img/whats-new/new-6.jpg" class="img-fluid" alt="cart-item">
+			</div>
+		  </div>
+		  <div class="col-8">
+			<div class="card-body">
+			  <h6 class="card-title fw-bold mb-1">Regular Fit Terry resort shirt</h6>
+			  <p class="card-text mb-1">
+				<small class="text-body-secondary">Size: XL, Colour: Blue</small>
+			  </p>
+			  <h5 class="card-text fw-bold mb-0 pb-3">
+				<del class="text-dark-emphasis fw-normal small">₹1,269.00</del> ₹869.00
+			  </h5>
+			  <div class="d-flex align-items-center gap-3 position-relative z-3">
+				<div>
+				  <input type="checkbox" class="btn-check" id="btncheckcart3">
+				  <label class="btn btn-outline-dark btn-sm border-2 rounded-0" for="btncheckcart3">
+					<i class="ri-heart-fill"></i>
+				  </label>
+				</div>
+				<div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number">
+				  <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark minus">
+					<i class="ri-subtract-fill"></i>
+				  </a>
+				  <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="1">
+				  <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus">
+					<i class="ri-add-fill"></i>
+				  </a>
+				</div>
+				<a href="#" class="btn btn-danger btn-sm border-2 rounded-0" data-bs-toggle="modal" data-bs-target="#delete">
+				  <i class="ri-delete-bin-5-fill"></i>
+				</a>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<a href="product-detail.html" class="stretched-link"></a>
+	  </div>
+	</div>
+	<div class="offcanvas-footer bg-light border-top border-light-subtle">
+	  <div class="mb-3">
+		<div class="d-flex align-items-center justify-content-between text-secondary-emphasis mb-1">
+		  <p class="mb-0">Order value</p>
+		  <p class="mb-0">₹2,798.00</p>
+		</div>
+		<div class="d-flex align-items-center justify-content-between text-secondary-emphasis mb-2">
+		  <p class="mb-0">Delivery</p>
+		  <p class="mb-0">FREE</p>
+		</div>
+		<div class="d-flex align-items-center justify-content-between">
+		  <h4 class="fw-bold mb-0">Total</h4>
+		  <h4 class="fw-bold mb-0">₹4,678.00</h4>
+		</div>
+	  </div>
+	  <div class="d-flex align-items-center gap-3">
+		<a href="cart.html" class="btn btn-outline-dark border-2 rounded-0 py-2 w-100">EDIT CART</a>
+		<a href="checkout.html" class="btn btn-dark rounded-0 py-2 w-100">CONTINUE</a>
+	  </div>
+	</div>
+  </div>
+  <!-- Search Modal -->
+  <div class="modal fade bg-dark bg-opacity-50" id="searchbar" tabindex="-1" aria-labelledby="searchbarLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+	  <div class="modal-content rounded-0">
+		<div class="modal-header d-none">
+		  <h1 class="modal-title fs-5" id="searchbarLabel">Modal title</h1>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		</div>
+		<div class="modal-body p-4">
+		  <div class="input-group border rounded-0">
+			<input type="search" class="form-control bg-transparent border-0 rounded-0 p-3" placeholder="Enter a brand or product" aria-label="Search" aria-describedby="search" list="datalistOptions">
+			<datalist id="datalistOptions">
+			  <option value="Trends">
+			  <option value="Nature">
+			  <option value="Travel">
+			  <option value="Art & Design">
+			  <option value="People">
+			</datalist>
+			<a href="#" class="input-group-text bg-transparent border-0 rounded-0 p-3" id="search">
+			  <i class="ri-search-line h5 m-0"></i>
+			</a>
+		  </div>
+		  <p class="fw-bold my-3">Recent Search</p>
+		  
+		  <p class="fw-bold my-3">Top Brands</p>
+		  <div class="col-12">
+			<div class="d-flex align-items-center gap-2">
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-1.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-2.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-3.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-4.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-5.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-6.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			  <div class="swiper-brands">
+				<div class="card bg-light border-0 rounded-0 p-2">
+				  <img src="/user/img/brand-logo/brand-7.png" class="card-img-top" alt="brand-logo">
+				  <a href="brand.html" class="stretched-link"></a>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="modal-footer d-none">
+			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+   
+  <!-- jquery cdn -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Bootstrap Bundle Js -->
+  <script src="/user/vender/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Swiper Slider Js -->
+  <script src="/user/vender/swiper-js/swiper-bundle.min.js"></script>
+  <!-- Custom Js -->
+  <script src="/user/js/script.js"></script>
+   <!-- for a user login required -->
+   <!-- <script>
+    url = location.href;
+    console.log(url);
+
+    // Corrected condition without a semicolon after if
+    if (url.includes("open_login_modal")) {
+        const myModal = new bootstrap.Modal(document.getElementById('login'), {
+            keyboard: false
+        });
+        myModal.show(); // Corrected capitalization (show() should be lowercase)
+    }
+</script> -->
+
+<script>
+	url=location.href;
+	console.log(url);
+	if(url.includes("open_login_modal"))
+	{
+		const myModal = new bootstrap.Modal(document.getElementById('login'), {
+		  keyboard: false
+	});
+	myModal.show();
+	};
+</script>
+
+
+
+</script>
+</body>
+
+<!-- Mirrored from iamosahan.com/wrapbootstrap-pillarix/luxuay/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Dec 2024 11:48:52 GMT -->
+</html>

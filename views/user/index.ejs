@@ -1,0 +1,120 @@
+<%- include("navbar.ejs") %>
+<div>
+	<div class="swiper hero-header">
+	  <div class="swiper-wrapper">
+		<div class="swiper-slide">
+		  <div class="hero-slider-one d-flex align-items-center">
+			<div class="container">
+			  <div class="row">
+				<div class="col-lg-5 col-12">
+				  <div class="text-white text-center text-md-start">
+					<div class="bg-white rounded-circle brand-img me-auto mb-3">
+					  <img src="/user/img/brand-logo/brand-1.png" alt="brand-logo" class="img-fluid p-4 ">
+					</div>
+					<div class="fw-bold display-1">NEW IN</div>
+					<p class="pb-3">Explore this week's lateest menwear pieces of the season curated for you Autumn Winter man Collection</p>
+					<a href="#" class="btn btn-light btn-lg rounded-0 px-5">VIEW ALL</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="hero-slider-two d-flex align-items-center">
+			<div class="container">
+			  <div class="row justify-content-end">
+				<div class="col-lg-5 col-12">
+				  <div class="text-white text-center text-md-end">
+					<div class="bg-white rounded-circle brand-img ms-auto mb-3">
+					  <img src="/user/img/brand-logo/brand-3.png" alt="brand-logo" class="img-fluid p-4">
+					</div>
+					<div class="fw-bold display-1">TRENDING</div>
+					<p class="pb-3">Explore this week's lateest menwear pieces of the season curated for you Autumn Winter man Collection</p>
+					<a href="#" class="btn btn-light btn-lg rounded-0 px-5">VIEW ALL</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="hero-slider-three d-flex align-items-center">
+			<div class="container">
+			  <div class="row justify-content-start">
+				<div class="col-lg-5 col-12">
+				  <div class="text-white text-center text-md-start">
+					<div class="bg-white rounded-circle brand-img me-auto mb-3">
+					  <img src="/user/img/brand-logo/brand-5.png" alt="brand-logo" class="img-fluid p-4">
+					</div>
+					<div class="fw-bold display-1">FASHION</div>
+					<p class="pb-3">Explore this week's lateest menwear pieces of the season curated for you Autumn Winter man Collection</p>
+					<a href="#" class="btn btn-light btn-lg rounded-0 px-5">VIEW ALL</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="swiper-slide">
+		  <div class="hero-slider-four d-flex align-items-center">
+			<div class="container">
+			  <div class="row justify-content-end">
+				<div class="col-lg-5 col-12">
+				  <div class="text-white text-center text-md-end">
+					<div class="bg-white rounded-circle brand-img ms-auto mb-3">
+					  <img src="/user/img/brand-logo/brand-8.png" alt="brand-logo" class="img-fluid p-4">
+					</div>
+					<div class="fw-bold display-1">UPCOMINGS</div>
+					<p class="pb-3">Explore this week's lateest menwear pieces of the season curated for you Autumn Winter man Collection</p>
+					<a href="#" class="btn btn-light btn-lg rounded-0 px-5">VIEW ALL</a>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="swiper-button-prev">
+		<i class="ri-arrow-left-s-line ri-3x text-dark"></i>
+	  </div>
+	  <div class="swiper-button-next">
+		<i class="ri-arrow-right-s-line ri-3x text-dark"></i>
+	  </div>
+	  <div class="swiper-pagination"></div>
+	</div>
+  </div>
+
+
+  <div class="py-5">
+	<div class="container">
+	  <div class="row align-items-center justify-content-between g-4 mb-4">
+		<div class="col-auto">
+		  <h4 class="fw-bold mb-0">Trending Products</h4>
+		</div>
+	  </div>
+	  <div class="container my-5">
+		<div class="row g-4 d-flex align-items-stretch">
+		  <% products.map((row, i) => { %>
+			<div class="col-md-4 col-sm-6 col-lg-3">
+			  <div class="card product-card border-0 shadow-sm h-100">
+				<img src="/uploads/<%= row.product_image1 %>" class="card-img-top" alt="<%= row.product_name %>" style="height: 300px;">
+				<div class="card-body text-center">
+				  <h6 class="card-title text-truncate"><%= row.product_name %></h6>
+				  <p class="text-muted mb-2">Size: <%= row.product_size %></p>
+				  <h6 class="text-primary">₹ <%= row.product_price %> /-</h6>
+				</div>
+				<a href="/product_details/<%-row.product_id%>" class="stretched-link"></a>
+			  </div>
+			</div>
+		  <% }) %>
+		</div>
+	  </div>
+	  
+	</div>
+  </div>
+ 
+
+			
+			
+<%- include("footer.ejs") %>

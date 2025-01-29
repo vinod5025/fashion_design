@@ -1,0 +1,22 @@
+<%- include("navbar.ejs"); %>
+<form action="/admin/update_category/<%-cats.category_id%>" method="post">
+    <div class="container-fluid card card-body">
+        <div class="row">
+            <div class="col-md-12 ">
+                <h2 class="heading">Update Category</h2>
+            </div>
+            <div class="col-md-6 mt-3 mb-3">
+                <b>Category Name :-</b>
+                <input type="text"  name="category_name" class="form-control border-primary rounded-pill" value="<%-cats.category_name%>"> 
+            </div>
+            <div class="col-md-6 mt-3 mb-3">
+                <b>Category Details :-</b>
+                <textarea type="text"  rows="1" name="category_details" class="form-control border-primary rounded-pill" value="<%-cats.category_details%>"></textarea>
+            </div>
+            <div class="col-md-12 mt-3 mb-3 text-center">  
+                <button class="btn btn-primary">Update Category</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("footer.ejs"); %>

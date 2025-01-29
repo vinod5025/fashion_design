@@ -1,0 +1,118 @@
+<%- include('navbar.ejs'); %>
+<div class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8 col-12">
+                <% if (products.length === 0) { %>
+                <div class="alert alert-warning text-center" role="alert">
+                    <h5>Your cart is currently empty!</h5>
+                    <p>Start adding products to your cart to proceed with the checkout.</p>
+                </div>
+                <% } else { %>
+                <% 
+                var all_total=0;
+                products.map((row) => {
+                product_total = row.product_price * row.quantity;
+                all_total=all_total + product_total;  
+                %>
+                <div class="card border-0 rounded-0 p-4 bg-light mb-4">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-3 col-md-3 col-4">
+                            <img src="/uploads/<%- row.product_image1 %>" class="img-fluid" alt="cart-item">
+                        </div>
+                        <div class="col-xl-10 col-lg-9 col-md-9 col-8">
+                            <div class="d-flex align-items-start justify-content-between">
+                                <div>
+                                    <h6 class="card-title fw-bold mb-1"><%- row.product_name %></h6>
+                                    <p class="card-text mb-1">
+                                        <small class="text-body-secondary">
+                                            Size: <%= row.size %>, Color:
+                                            <span style="background-color: <%= row.product_color %>; color:<%= row.product_color %>; border:2px solid black"></span>
+                                        </small>
+                                    </p>
+                                    <h5 class="card-text fw-bold mb-0 pb-5">
+                                        ₹ <%- row.product_price %> /-
+                                    </h5>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="btn-group btn-group-sm border border-2 border-dark rounded-0 number w-50">
+                                            <a class="btn btn-outline-dark rounded-0 border-0 border-end border-2 border-dark" onclick="dec_qty(this,'<%-row.cart_id%>')">
+                                                <i class="ri-subtract-fill"></i>
+                                            </a>
+                                            <input class="form-control border-0 rounded-0 text-center p-0 count" type="text" value="<%= row.quantity %>" readonly>
+                                            <a class="btn btn-outline-dark rounded-0 border-0 border-start border-2 border-dark plus" onclick="inc_qty(this, '<%-row.cart_id%>')">
+                                                <i class="ri-add-fill"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Delete Button -->
+                                <a href="/delete_cart/<%-row.cart_id%>" onclick="return confirm('Are You Sure...?')" class="btn btn-danger btn-sm border-2 rounded-0 delete-btn" >
+                                    <i class="ri-delete-bin-5-fill"></i> Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+                <% } %>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="bg-light p-5">
+                    <h4 class="fw-bold pb-2">Summary <small class="fw-light"><%=products.length%> Items</small> </h4>
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center justify-content-between text-secondary-emphasis mb-1">
+                            <p class="mb-0">Order value</p>
+                            <p class="mb-0">₹ <span class="all_total"><%=all_total%></span> /-</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between text-secondary-emphasis mb-2">
+                            <p class="mb-0">Delivery</p>
+                            <p class="mb-0">FREE</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <h4 class="fw-bold mb-0">Total</h4>
+                            <h4 class="fw-bold mb-0">₹ <span class="all_total"><%=all_total%></span> /-</h4>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-3">
+                        <a href="/check_out" class="btn btn-dark rounded-0 py-2 w-100">CONTINUE</a>
+                        <a href="/" class="btn btn-danger rounded-0 py-2 w-100">GO BACK</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function dec_qty(btn,cart_id)
+    {
+        var d = btn.closest('div');
+        var inp = d.getElementsByTagName('input')[0];
+        if (inp.value > 1)
+        {
+            inp.value = inp.value - 1;
+            $.ajax({
+                "url": "/update_cart_qty",
+                "type": "post",
+                "data": {"new_qty": inp.value, "cart_id": cart_id}
+            }).done(function(res){
+                $(".all_total").html(res.all_total);
+            });
+        }
+    }
+
+    function inc_qty(btn, cart_id)
+    {
+        var d = btn.closest('div');
+        var inp = d.getElementsByTagName('input')[0];
+        inp.value = parseInt(inp.value) + 1;
+        $.ajax({
+            "url": "/update_cart_qty",
+            "type": "post",
+            "data": {"new_qty": inp.value, "cart_id": cart_id}
+        }).done(function(res){
+            $(".all_total").html(res.all_total);
+        });
+    }
+</script>
+
+<%- include('footer.ejs'); %>

@@ -1,0 +1,116 @@
+<%- include("navbar.ejs"); %>
+<form action="/admin/update_product" method="post" enctype="multipart/form-data">
+    <div class="container-fluid card card-body shadow-lg p-4 mb-4 bg-white rounded">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="heading  mb-4">Update Product</h2>
+            </div>
+
+            <!-- Product Name -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_name" class="form-label"><b>Product Name</b> :</label>
+                <input required type="text" name="product_name" id="product_name" value="<%-product_info.product_name%>" class="form-control border-primary rounded-pill"> 
+            </div>
+
+            <!-- Product Price -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_price" class="form-label"><b>Product Price</b> :</label>
+                <input required type="number" name="product_price" id="product_price" value="<%-product_info.product_price%>" class="form-control border-primary rounded-pill"> 
+            </div>
+
+            <!-- Product Purchase Price -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_purchase_price" class="form-label"><b>Product Purchase Price</b> :</label>
+                <input required type="number" name="product_purchase_price" id="product_purchase_price" value="<%-product_info.product_purchase_price%>" class="form-control border-primary rounded-pill"> 
+            </div>
+
+            <!-- Product Brand -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_brand" class="form-label"><b>Product Brand</b> :</label>
+                <select name="product_brand" id="product_brand" class="form-select border-primary rounded-pill">
+                    <option value="">Select Brand</option>
+                    <!-- Dynamically add options from the database -->
+                  
+                </select>
+            </div>
+
+            <!-- Product Category -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_category" class="form-label"><b>Product Category</b> :</label>
+                <select name="product_category" id="product_category" class="form-select border-primary rounded-pill">
+                    <option value="">Select Category</option>
+                    <!-- Dynamically add options from the database -->
+                  
+                </select>
+            </div>
+
+            <!-- Product Type -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_type" class="form-label"><b>Product Type</b> :</label>
+                <select name="product_type" id="product_type" class="form-select border-primary rounded-pill">
+                    <option value="Mens" <%- product_info.product_type === 'Mens' ? 'selected' : '' %>>Mens</option>
+                    <option value="Womens" <%- product_info.product_type === 'Womens' ? 'selected' : '' %>>Womens</option>
+                    <option value="Kids" <%- product_info.product_type === 'Kids' ? 'selected' : '' %>>Kids</option>
+                    <option value="Others" <%- product_info.product_type === 'Others' ? 'selected' : '' %>>Others</option>
+                </select>
+            </div>
+
+            <!-- Product Details -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_details" class="form-label"><b>Product Details</b> :</label>
+                <textarea name="product_details" id="product_details" class="form-control border-primary rounded-3" rows="4"><%-product_info.product_details%></textarea>
+            </div>
+
+            <!-- Product Size -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_size" class="form-label"><b>Product Size</b> :</label>
+                <input required type="text" name="product_size" id="product_size" value="<%-product_info.product_size%>" class="form-control border-primary rounded-pill">
+            </div>
+
+            <!-- Product Color -->
+            <div class="col-md-6 mt-3 mb-3">
+                <label for="product_color" class="form-label"><b>Product Color</b> :</label>
+                <input required type="color" name="product_color" id="product_color" value="<%-product_info.product_color%>" class="form-control rounded-pill">
+            </div>
+
+            <!-- Product Images -->
+            <div class="col-md-3 mt-3 mb-3">
+                <label for="product_image1" class="form-label"><b>Product Image 1</b> :</label>
+                <input type="file" name="product_image1" id="product_image1" class="form-control" required >
+                <% if (product_info.product_image1) { %>
+                    <img src="/uploads/<%- product_info.product_image1 %>" alt="Product Image 1" style="border-radius: 15px; width:100px;" class="mt-2">
+                <% } %>
+            </div>
+
+            <div class="col-md-3 mt-3 mb-3">
+                <label for="product_image2" class="form-label"><b>Product Image 2</b> :</label>
+                <input type="file" name="product_image2" id="product_image2" class="form-control" required>
+                <% if (product_info.product_image2) { %>
+                    <img src="/uploads/<%- product_info.product_image2 %>" alt="Product Image 2" style="border-radius: 15px; width:100px;" class="mt-2">
+                <% } %>
+            </div>
+
+            <div class="col-md-3 mt-3 mb-3">
+                <label for="product_image3" class="form-label"><b>Product Image 3</b> :</label>
+                <input type="file" name="product_image3" id="product_image3" class="form-control" required>
+                <% if (product_info.product_image3) { %>
+                    <img src="/uploads/<%- product_info.product_image3 %>" alt="Product Image 3" style="border-radius: 15px; width:100px;" class="mt-2">
+                <% } %>
+            </div>
+
+            <div class="col-md-3 mt-3 mb-3">
+                <label for="product_image4" class="form-label"><b>Product Image 4</b> :</label>
+                <input type="file" name="product_image4" id="product_image4" class="form-control" required>
+                <% if (product_info.product_image4) { %>
+                    <img src="/uploads/<%- product_info.product_image4 %>" alt="Product Image 4" style="border-radius: 15px; width:100px;" class="mt-2">
+                <% } %>
+            </div>
+
+            <!-- Update Button -->
+            <div class="col-md-12 mt-3 mb-3 text-center">
+                <button type="submit" class="btn btn-primary rounded-pill py-2 px-5">Update Product</button>
+            </div>
+        </div>
+    </div>
+</form>
+<%- include("footer.ejs"); %>

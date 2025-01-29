@@ -1,0 +1,79 @@
+<%- include('navbar.ejs') %>
+<div class="container mt-5">
+  <!-- Chart Section -->
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <h5>Sales Overview</h5>
+    </div>
+    <div class="card-body">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Orders Summary -->
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card text-center text-white bg-warning mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Total Pending Orders</h5>
+          <p class="card-text fs-4"><%= pending_orders.ttl %> </p>
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-md-4">
+      <div class="card text-center text-white bg-success mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Paid Amount</h5>
+          <p class="card-text fs-4">₹<%= pending_orders_paid_amt.ttl %> /-</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-center text-white bg-danger mb-3">
+          <div class="card-body">
+            <h5 class="card-title">Unpaid Amount</h5>
+            <p class="card-text fs-4">₹<%= pending_orders_UN_paid_amt.ttl %> /-</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<!-- Chart.js Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('myChart');
+  var xaxis = [<%- "'" + xaxis.join("','") + "'" %>];
+  var yaxis = [<%- yaxis.join(",") %>];
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: xaxis,
+      datasets: [{
+        label: 'Sales In RS.',
+        data: yaxis,
+        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+<%- include('footer.ejs') %>

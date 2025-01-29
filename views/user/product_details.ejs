@@ -1,0 +1,128 @@
+<%- include("navbar.ejs"); %>
+<style>
+  .swiper-slide{
+    max-height: 500px;
+  }
+</style>
+<form action="/save_in_cart" method="post">
+  <div class="container-fluid p-0">
+    <input type="hidden" name="product_id" value="<%-product_info.product_id%>">
+    <div class="row g-0">
+      <!-- Left Section: Product Images Slider -->
+      <div class="col-lg-6 col-12">
+        <div class="swiper product-view-slider">
+          <div class="swiper-wrapper">
+            <% if (product_info.product_image1) { %>
+              <div class="swiper-slide">
+                <img src="/uploads/<%- product_info.product_image1 %>" alt="Product Image 1" class="img-fluid rounded" style="width: 70%;position: relative;left: 15%;">
+              </div>
+            <% } %>
+            <% if (product_info.product_image2) { %>
+              <div class="swiper-slide">
+                <img src="/uploads/<%- product_info.product_image2 %>" alt="Product Image 2" class="img-fluid rounded" style="width: 70%;position: relative;left: 15%;">
+              </div>
+            <% } %>
+            <% if (product_info.product_image3) { %>
+              <div class="swiper-slide">
+                <img src="/uploads/<%- product_info.product_image3 %>" alt="Product Image 3" class="img-fluid rounded" style="width: 70%;position: relative;left: 15%;">
+              </div>
+            <% } %>
+            <% if (product_info.product_image4) { %>
+              <div class="swiper-slide">
+                <img src="/uploads/<%- product_info.product_image4 %>" alt="Product Image 4" class="img-fluid rounded" style="width: 70%;position: relative;left: 15%;">
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Section: Product Details -->
+      <div class="col-lg-6 col-12">
+        <div class="sticky-sidebar p-4">
+          <div class="mb-4">
+            <p class="text-muted mb-2"><%- product_info.category_name %></p>
+            <h1 class="fw-bold"><%- product_info.product_name %></h1>
+            <h2 class="fw-bold text-primary">₹ <%- product_info.product_price %> /-</h2>
+          </div>
+
+          <!-- Size and Quantity -->
+          <div class="d-flex flex-column gap-4 mb-5">
+            <!-- Size Selection -->
+            <div>
+              <div>
+                <div>
+                  <h6 class="fw-bold pb-1">Select Size</h6>
+                  <div class="d-flex align-items-center gap-3">
+                    <div>
+                      <input type="radio" class="btn-check" name="size" id="btnradio1ss" value="S" checked>
+                      <label class="btn btn-outline-dark rounded-0 border-2" for="btnradio1ss" >S</label>
+                    </div>
+                    <div>
+                      <input type="radio" class="btn-check" name="size" id="btnradio2ss" value="M">
+                      <label class="btn btn-outline-dark rounded-0 border-2" for="btnradio2ss">M</label>
+                    </div>
+                    <div>
+                      <input type="radio" class="btn-check" name="size" id="btnradio3" value="Xl">
+                      <label class="btn btn-outline-dark rounded-0 border-2" for="btnradio3">XL</label>
+                    </div>
+                    <div>
+                      <input type="radio" class="btn-check" name="size" id="btnradio4" value="XXL">
+                      <label class="btn btn-outline-dark rounded-0 border-2" for="btnradio4">XXL</label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!-- Quantity Selection -->
+            <div>
+              <h6 class="fw-bold pb-1 mt-2">Select Quantity</h6>
+              <div class="input-group border border-2 border-dark rounded-pill w-50">
+                <button type="button" class="btn btn-outline-dark border-0 px-3" onclick="decrement()">
+                  <i class="ri-subtract-fill"></i>
+                </button>
+                <input type="text" class="form-control border-0 text-center fw-bold" name="quantity" value="1" readonly>
+                <button type="button" class="btn btn-outline-dark border-0 px-3" onclick="increment()">
+                  <i class="ri-add-fill"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add to Cart Button -->
+           <% if(in_cart.length > 0) { %>
+            <div class="mb-5">
+              <a href="/cart" class="btn btn-primary py-2 w-100 rounded-pill fw-bold">ADDED IN CART </a>
+            </div>
+            <% }
+            else { %>
+            <div class="mb-5">
+              <button type="submit" class="btn btn-primary py-2 w-100 rounded-pill fw-bold">ADD TO CART</button>
+            </div>  
+           <% } %>
+         
+
+          <!-- Product Details -->
+          <div>
+            <p class="text-muted"><%- product_info.product_details %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<%- include("footer.ejs"); %>
+
+<script>
+  function increment() {
+  const input = document.querySelector('input[name="quantity"]');
+  input.value = parseInt(input.value) + 1;
+}
+
+function decrement() {
+  const input = document.querySelector('input[name="quantity"]');
+  if (parseInt(input.value) > 1) {
+    input.value = parseInt(input.value) - 1;
+  }
+}
+
+</script>

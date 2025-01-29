@@ -1,0 +1,138 @@
+<%- include ("navbar.ejs"); %>
+<form action="/admin/save_product" method="post" enctype="multipart/form-data">
+    <div class="container-fluid card card-body">
+        <div class="row">
+            <div class="col-md-12 ">
+                <h2 class="heading">Add Product</h2>
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Name :-</b>
+                <input required type="text"  name="product_name" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Price :-</b>
+                <input required type="number"  name="product_price" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Purchase Price :-</b>
+                <input required type="text"  name="product_purchase_price" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Brand :-</b>
+                <select selected required   name="prouduct_brand_id" class="form-select">
+                    <% brands.map((row,i)=>{ %>
+                        <option value="<%-row.brand_id%>"><%-row.brand_name%></option>
+                   <% })%>   
+                </select>
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Category :-</b>
+                <select selected required   name="prouduct_category_id" class="form-select">
+                    <option selected disabled>Select Category</option>
+                    <% cats.map((row,i)=>{ %>
+                        <option value="<%-row.category_id%>"><%-row.category_name%></option>
+                   <% })%>   
+                </select>
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Type :-</b>
+                <select name="prouct_type" class="form-select">
+                    <option>Mens</option>
+                    <option>Womens</option>
+                    <option>Kids</option>
+                    <option>Others</option>
+                </select>
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Details :-</b>
+                <textarea type="text"  name="product_details" class="form-control border-primary rounded-pill" rows="1"></textarea>
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Size :-</b>
+                <input required type="text"  name="product_size" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Color :-</b>
+                <input required type="color"  name="product_color" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Image 1 :-</b>
+                <input required type="file"  name="product_image1" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Image 2 :-</b>
+                <input  type="file"  name="product_image2" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Image 3 :-</b>
+                <input  type="file"  name="product_image3" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-3 mt-3 mb-3">
+                <b>Product Image 4 :-</b>
+                <input  type="file"  name="product_image4" class="form-control border-primary rounded-pill"> 
+            </div>
+            <div class="col-md-12  mb-3 text-center">
+                <br>  
+                <button class="btn btn-primary rounded-pill">Add product</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+
+
+
+<div class="container-fluid mt-5 mb-5 card card-body table-responsive">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="heading">Product List</h3>
+        </div>
+        <div class="col-md-12 mt-5 mb-5 text-center">
+        <table class="table table-hover shadow " style="text-align: middle;white-space: nowrap;">
+            <tr>
+                <th>Action</th>
+                <th>Sr.No.</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Brand </th>
+                <th>Type </th>
+                <th>Image </th>
+                <th>Size </th>
+            </tr>
+            <% product_list.map((row,i)=>{ %>
+                <tr>
+                    <td style="white-space: nowrap;">
+                        <!-- <button class="btn btn-secondary">
+                          <a href="/admin/edit_product/<%-row.product_id%>"><i class="fa fa-edit"></i></a>
+                        </button> -->
+                        <button class="btn btn-danger">
+                          <a href="/admin/delete_product/<%-row.product_id%>" onclick="return confirm('Are you sure?')"><i class="fa fa-trash"></i></a>
+                        </button>
+                      </td>
+                    <td><%-i+1%></td>
+                    <td><%-row.product_name%></td>
+                    <td><%-row.product_price%></td>
+                    <td><%-row.category_name%></td>
+                    <td><%-row.brand_name%></td>
+                    <td><%-row.product_type%></td>
+                    <td>
+                        <button onclick="Open_imge(`<%-row.product_image1%>`)">Open</button>
+                    </td>
+                    <td><%-row.product_size%></td>
+                </tr>
+             <% }) %>   
+        </table>
+            </div>
+        </div>
+    </div>
+    <%- include ("footer.ejs"); %>
+    <script>
+        function Open_imge(image_path){
+            var image=window.open('/uploads/'+image_path,"","width=500px,height=500px");
+            setTimeout(function(){
+                image.close();
+            },1500)
+        }
+    </script>

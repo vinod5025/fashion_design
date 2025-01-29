@@ -1,0 +1,81 @@
+<%- include('navbar.ejs'); %>
+<!-- body -->
+<form action="/confim_order" method="post">
+  <div class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Address Form Section -->
+        <div class="col-lg-8 col-12">
+          <div class="p-4 bg-white rounded shadow">
+            <h5 class="fw-bold mb-4 text-primary">Deliver to Here...</h5>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="InputFirstName1" class="form-label">Full Name</label>
+                <input type="text" id="InputFirstName1" name="full_name" class="form-control" placeholder="Enter Your Name">
+              </div>
+              <div class="col-md-6">
+                <label for="InputFirstMobile" class="form-label">Mobile Number</label>
+                <input type="number" id="InputFirstMobile" name="mo_no" class="form-control" placeholder="Enter Your Mobile">
+              </div>
+              
+              <div class="col-md-6">
+                <label for="street_landmark" class="form-label">Street / Landmark</label>
+                <input type="text" id="street_landmark" name="street_landmark" class="form-control" placeholder="Enter Landmark">
+              </div>
+              <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" id="city" name="city" class="form-control" placeholder="City">
+              </div>
+              <div class="col-md-6">
+                <label for="district" class="form-label">District</label>
+                <input type="text" id="district" name="district" class="form-control" placeholder="District">
+              </div>
+              <div class="col-md-6">
+                <label for="state" class="form-label">State</label>
+                <input type="text" id="state" name="state" class="form-control" placeholder="State">
+              </div>
+              <div class="col-md-6">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" id="country" name="country" class="form-control" value="India" readonly>
+              </div>
+              <div class="col-md-6">
+                <label for="pincode" class="form-label">Pincode</label>
+                <input type="number" id="pincode" name="pincode" class="form-control" placeholder="Pincode">
+              </div>
+              <div class="col-md-6">
+                <label for="payment_type" class="form-label">Payment Type</label>
+                <select id="payment_type" name="payment_type" class="form-select">
+                  <option value="online" selected>Online : Card / UPI / Net Banking</option>
+                  <option value="cod">Cash On Delivery</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary Section -->
+        <div class="col-lg-4 col-12">
+          <div class="p-4 bg-white rounded shadow">
+            <h5 class="fw-bold mb-4 text-primary">Order Summary</h5>
+            <div class="border-top pt-3">
+              <div class="d-flex justify-content-between">
+                <p>Order Value</p>
+                <p>₹ <%=total%> /-</p>
+              </div>
+              <div class="d-flex justify-content-between">
+                <p>Delivery</p>
+                <p>FREE</p>
+              </div>
+              <div class="d-flex justify-content-between fw-bold mt-3">
+                <p>Total</p>
+                <p>₹ <%=total%> /-</p>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Place Order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<%- include('footer.ejs'); %>

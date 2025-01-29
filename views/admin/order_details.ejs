@@ -1,0 +1,120 @@
+<%- include("navbar.ejs"); %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function printInvoice() {
+            window.print();
+        }
+    </script>
+</head>
+<body>
+<div class="container mt-5">
+    <div class="border p-4 rounded">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-uppercase">Invoice</h1>
+            <h4>Order ID: <%= order_info.order_id %></h4>
+        </div>
+        <hr>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h5>From:</h5>
+                <p>
+                    <strong>FASHON</strong><br>
+                    Bangalore <br>
+                    India <br>
+                    <br>
+                    Phone: +91 234 567 890
+                </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <h5>To:</h5>
+                <p>
+                    <strong><%= order_info.full_name %></strong><br>
+                    <%= order_info.street_landmark %><br>
+                    <%= order_info.city %>, <%= order_info.state %><br>
+                    <%= order_info.country %> - <%= order_info.pincode %><br>
+                    Phone: +91 <%= order_info.mo_no %>
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <p><strong>Order Date:</strong> <%= new Date(order_info.order_date).toLocaleDateString() %></p>
+                <p><strong>Payment Type:</strong> <%= order_info.payment_type %></p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <p><strong>Transaction ID:</strong> <%= order_info.transaction_id %></p>
+                <p><strong>Payment Status:</strong> <%= order_info.payment_staus %></p>
+            </div>
+        </div>
+        <hr>
+        <div class="table-responsive mb-4">
+            <table class="table table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Product Name</th>
+                        <th>Details</th>
+                        <th>Size</th>
+                        <th>Color</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach((product, index) => { %>
+                        <tr>
+                            <td><%= index + 1 %></td>
+                            <td><%= product.product_name %></td>
+                            <td><%= product.product_details %></td>
+                            <td><%= product.product_size %></td>
+                            <td style="background-color: <%= product.product_color %>; color: <%= product.product_color %>;">
+                                <%= product.product_color %>
+                            </td>
+                            <td>₹ <%= product.price %> /-</td>
+                            <td><%= product.quantity %></td>
+                            <td>₹ <%= product.total %> /-</td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex justify-content-end">
+            <div class="w-25 text-end">
+                <p><strong>Subtotal:</strong> ₹ <%= order_info.total %> /- </p>
+                <hr>
+                <h5><strong>Total:</strong> ₹ <%= order_info.total %> /-</h5>
+            </div>
+        </div>
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" onclick="printInvoice()">Print Invoice</button>
+        </div>
+
+        <!-- Admin action buttons -->
+        <div class="mt-4">
+            <% if(order_info.order_status === 'pending') { %>
+                <div class="d-flex justify-content-start">
+                    <a href="/admin/change_order_status_to_dispatch/<%= order_info.order_id %>" class="btn btn-warning me-2">Dispatch</a>
+                    <a href="/admin/change_order_status_to_reject/<%= order_info.order_id %>" class="btn btn-danger">Reject</a>
+                </div>
+            <% } %>
+            <% if(order_info.order_status === 'dispatch') { %>
+                <div class="d-flex justify-content-start">
+                    <a href="/admin/change_order_status_to_deliver/<%= order_info.order_id %>" class="btn btn-success me-2">Deliver Order</a>
+                    <a href="/admin/change_order_status_to_reject/<%= order_info.order_id %>" class="btn btn-danger">Reject</a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include("footer.ejs"); %>
+</body>
+</html>

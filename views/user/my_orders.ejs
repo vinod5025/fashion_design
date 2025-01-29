@@ -1,0 +1,40 @@
+<%- include('navbar.ejs'); %>
+<div class="container py-5">
+    <h2 class="mb-4">Order History</h2>
+
+    <!-- Order History Table -->
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead class="table-primary">
+          <tr>
+            <th>Order ID</th>
+            <th>Order Date</th>
+            <th>Payment Status</th>
+            <th>Order Amount</th>
+            <th>Order Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Order Row 1 -->
+           <% orders.map((row,i)=>{ %>
+          <tr>
+            <td><%=row.order_id%></td>
+            <td><%-row.order_date%></td>
+            <td><span class="badge bg-success"><%=row.payment_staus%></span></td>
+            <td>₹ <%=row.total%> /-</td>
+            <td><span class="badge bg-primary"><%=row.order_status%></span></td>
+            <td>
+              <button class="btn btn-outline-primary btn-sm me-1">Track</button>
+              <a href="/print_invoice/<%=row.order_id%>">
+              <button class="btn btn-outline-secondary btn-sm">Invoice</button>
+              </a> 
+            </td>
+          </tr>
+          <% }) %>
+       
+        </tbody>
+      </table>
+    </div>
+  </div>
+<%- include('footer.ejs'); %>

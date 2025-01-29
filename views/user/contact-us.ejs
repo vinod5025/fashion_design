@@ -1,0 +1,57 @@
+<%- include("navbar.ejs"); %>
+	<!-- Section -->
+   <!-- Body -->
+   <div class="py-5">
+    <div class="container px-5">
+      <div class="rounded-3 py-5 px-md-5 mb-5">
+        <div class="text-center mb-5">
+          <div class="feature bg-dark bg-gradient text-white rounded-3 mb-3 rounded-circle">
+            <i class="ri-mail-line"></i>
+          </div>
+          <h1 class="fw-bold text-black">How can we help?</h1>
+          <p class="lead fw-normal text-muted mb-0">We'd love to hear from you</p>
+        </div>
+        <div class="row gx-5 justify-content-center">
+          <div class="col-lg-8 col-xl-6">
+            <form class="form-floating-space" id="contactForm" data-sb-form-api-token="API_TOKEN" action="/save_contact_info" method="post">
+              <div class="form-floating mb-3 rounded-0">
+                <input name="contact_us_info_name" class="form-control rounded-0" id="name" type="text"  placeholder="Enter your name..." data-sb-validations="required">
+                <label for="name">Full name</label>
+                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+              </div>
+              <div class="form-floating mb-3 rounded-0">
+                <input  name="contact_us_info_email" class="form-control rounded-0" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email">
+                <label for="email">Email address</label>
+                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+              </div>
+              <div class="form-floating mb-3 rounded-0">
+                <input name="contact_us_info_mobile" class="form-control rounded-0" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required">
+                <label for="phone">Phone number</label>
+                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+              </div>
+              <div class="form-floating mb-3 rounded-0">
+                <textarea name="contact_us_info_message" class="form-control rounded-0" id="message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                <label for="message">Message</label>
+                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+              </div>
+              <div class="d-none" id="submitSuccessMessage">
+                <div class="text-center mb-3">
+                  <div class="fw-bolder">Form submission successful!</div> To activate this form, sign up at
+                </div>
+              </div>
+              <div class="d-none" id="submitErrorMessage">
+                <div class="text-center text-danger mb-3">Error sending message!</div>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-dark fw-bold fs-7 rounded-0 shadow-none border-0 px-5 py-3 text-uppercase w-100" id="submitButton" type="submit">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+    <!-- End / Section -->
+<%- include("footer.ejs"); %>
